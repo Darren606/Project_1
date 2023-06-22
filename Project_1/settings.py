@@ -11,8 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os
-
+import os,sys
+import time
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,6 +29,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+sys.path.insert(0,os.path.join(BASE_DIR, 'apps'))
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,10 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    # 'emp_manage',
+    'corsheaders',
+    'emp_manage',
+
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -51,6 +56,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ORIGIN_WHITELIST = (
+    'http://127.0.0.1:8080',
+    'http://localhost:8080',
+
+)
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'Project_1.urls'
 
@@ -204,4 +216,10 @@ LOGGING = {
             'level': 'INFO',
         },
     }
+}
+
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': int(time.time()+3600*24),
+    'JWT_REFRESH_EXPIRATION': int(time.time()+3600*24),
+    'JWT_KEY': '1ssdfsdt45yjnfhf',
 }
