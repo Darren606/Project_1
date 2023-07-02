@@ -36,7 +36,7 @@ class EmployeeView(APIView):
         return Response(ser.errors)
 
 
-
+"""This class can create, update,delete, and modify all the data in the database"""
 
 class PersonView(ModelViewSet):
     serializer_class = PersonSerializer
