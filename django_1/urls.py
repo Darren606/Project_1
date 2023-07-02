@@ -18,16 +18,17 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 from emp_manage.views import json_views
-from .views.user_view import UserLoginView
+from .views import test_db
+# from .views.user_view import UserLoginView
 
-urlpatterns = [
-    path('login/', json_views.StaffLoginAPIView.as_view()),
-    path('userlogin/', UserLoginView.as_view(), name='user-login'),
-]
+# urlpatterns = [
+#     path('login/', json_views.StaffLoginAPIView.as_view()),
+#     path('userlogin/', UserLoginView.as_view(), name='user-login'),
+# ]
 # your_app/urls.py
 
 
 
-# urlpatterns = [
-#     path('userlogin/', UserLoginView.as_view(), name='user-login'),
-# ]
+urlpatterns = [ path('hello/', test_db)]
+    # path('userlogin/', UserLoginView.as_view(), name='user-login'),
+

@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os,sys
 import time
+
+from drf_yasg.openapi import logger
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,6 +47,8 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     'emp_manage',
+    'django_1',
+    'REST_Framework',
 
 
 ]
@@ -177,54 +182,55 @@ SESSION_CACHE_ALIAS = "session"
 # 配置项目日志
 
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(lineno)d %(message)s',
-            'extra': '%(extra)s',  # Include the 'extra' parameter in the format string
-        },
-        'simple': {
-            'format': '%(levelname)s %(module)s %(lineno)d %(message)s',
-            'extra': '%(extra)s',  # Include the 'extra' parameter in the format string
-        },
-    },
-    'filters': {
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        },
-    },
-    'handlers': {
-        'console': {
-            'level': 'INFO',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.handlers.TimedRotatingFileHandler',
-            'filename': os.path.join(os.path.dirname(BASE_DIR), 'Project_1/logs/project_1.log'),
-            'when': 'D',
-            'interval': 1,
-            'backupCount': 30,
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
-        },
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '%(levelname)s %(asctime)s %(module)s %(lineno)d %(message)s',
+#             'extra': '%(extra)s',  # Include the 'extra' parameter in the format string
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(module)s %(lineno)d %(message)s',
+#             'extra': '%(extra)s',  # Include the 'extra' parameter in the format string
+#         },
+#     },
+#     'filters': {
+#         'require_debug_true': {
+#             '()': 'django.utils.log.RequireDebugTrue',
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'INFO',
+#             'filters': ['require_debug_true'],
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'simple'
+#         },
+#         'file': {
+#             'level': 'INFO',
+#             'class': 'logging.handlers.TimedRotatingFileHandler',
+#             'filename': os.path.join(os.path.dirname(BASE_DIR), 'Project_1/logs/project_1.log'),
+#             'when': 'D',
+#             'interval': 1,
+#             'backupCount': 30,
+#             'formatter': 'verbose'
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['console', 'file'],
+#             'level': 'INFO',
+#         },
+#     }
+# }
 
-JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': int(time.time()+3600*24),
-    'JWT_REFRESH_EXPIRATION': int(time.time()+3600*24),
-    'JWT_KEY': '1ssdfsdt45yjnfhf',
-}
+
+# JWT_AUTH = {
+#     'JWT_EXPIRATION_DELTA': int(time.time()+3600*24),
+#     'JWT_REFRESH_EXPIRATION': int(time.time()+3600*24),
+#     'JWT_KEY': '1ssdfsdt45yjnfhf',
+# }
 
 #
 # SWAGGER_SETTINGS = {
