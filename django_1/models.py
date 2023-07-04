@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import Model
 
 from basic_info.base_model import BaseModel
+from django.core.exceptions import FieldDoesNotExist
 
 
 # Create your models here.

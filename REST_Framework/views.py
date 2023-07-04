@@ -39,5 +39,18 @@ class EmployeeView(APIView):
 """This class can create, update,delete, and modify all the data in the database"""
 
 class PersonView(ModelViewSet):
+    """
+    create:
+    create data in the database
+
+    update:
+    update data in the database
+
+    put:
+    modify data in the database
+
+    delete:
+    delete data
+    """
     serializer_class = PersonSerializer
     queryset = PersonModel.objects.all()

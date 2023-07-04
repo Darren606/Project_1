@@ -13,8 +13,13 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os,sys
 import time
+from django.core.exceptions import FieldDoesNotExist
 
 from drf_yasg.openapi import logger
+from rest_framework.schemas import AutoSchema
+from rest_framework.templatetags import rest_framework
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -49,6 +54,7 @@ INSTALLED_APPS = [
     'emp_manage',
     'django_1',
     'REST_Framework',
+    'coreAPI',
 
 
 ]
@@ -245,3 +251,9 @@ SESSION_CACHE_ALIAS = "session"
 #         'drf_yasg.inspectors.StringDefaultFieldInspector',
 #     ],
 # }
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
+
+# rest_framework.schemas

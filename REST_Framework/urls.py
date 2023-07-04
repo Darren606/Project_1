@@ -42,12 +42,12 @@ class PersonViewSet(viewsets.ViewSet):
         pass
 
 router = SimpleRouter()
-router.register(r'person', views.PersonView, basename='person11')
+router.register(r'person111', views.PersonView, basename='person11')
 router.register(r'person3', views2.Person3View, basename='person33')
 
 # Include the router URLs in your urlpatterns
 
-urlpatterns = [ path('aa/', EmployeeView.as_view()),
+urlpatterns = [ path('Employee222/', EmployeeView.as_view()),
                 # path('BB/', PersonView.as_view()),
                 ]+ router.urls
 

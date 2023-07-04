@@ -3,6 +3,7 @@ from django.db import models
 from basic_info.base_model import BaseModel
 
 
+
 class EmployeeModel(BaseModel):
     name = models.CharField(max_length=20, verbose_name='name1')
     age = models.IntegerField(blank=True, null=True, verbose_name='age1')
@@ -18,7 +19,7 @@ class EmployeeModel(BaseModel):
 
     def __str__(self):
         return f"Hi, my name is:{self.name},my ID is:{self.id}"
-
+        
 
 class PersonModel(BaseModel):
     name = models.CharField(max_length=20, verbose_name='name1')

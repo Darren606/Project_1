@@ -1,3 +1,5 @@
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.decorators import action
 from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import ListModelMixin, CreateModelMixin, RetrieveModelMixin
@@ -19,15 +21,57 @@ class Person2View(GenericAPIView, ListModelMixin, CreateModelMixin):
         self.create(request)
 
 
-
-
 """This class can create,update, delete, and modify all the data in the database"""
 
+
 class Person3View(ModelViewSet):
+    """
+    create:
+    新加
+
+    create all menu
+
+    retrieve:
+    修改
+
+    modify some data
+
+    update:
+    更新
+
+    add data
+
+    partial_update:
+    新增
+
+    single add
+
+    destroy:
+    55
+
+    deletel.......
+
+    list:
+    66
+
+    query all data
+
+    actions:
+    7777777777777777777777777777777777777777777777777
+
+    aaaaa
+    """
+
     serializer_class = PersonSerializer
     queryset = PersonModel.objects.all()
+    del_ids = openapi.Schema(type=openapi.TYPE_OBJECT, required=['ids'],
+                             properties={'ids': openapi.Schema(type=openapi.TYPE_ARRAY,
+                                                               items=openapi.Schema(type=openapi.TYPE_INTEGER),
+                                                               description="some items need to deletel ID")})
 
-    @action(methods=['GET', 'POST', 'PUT', 'DELETE'], detail=False)
+    @swagger_auto_schema(method='delete', request_body=del_ids,operation_description="mulple delete")
+    @action(methods=['DELETE'], detail=False)
+
     def search(self, request):
         name = request.query_params.get('name', '')
         age = request.query_params.get('age', 0)
