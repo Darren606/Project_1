@@ -19,21 +19,23 @@ from django.urls import path, re_path
 from django.urls import path, include
 from rest_framework import viewsets
 from rest_framework.routers import SimpleRouter
+# from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_simplejwt.views import TokenObtainPairView
+
+# Your code continues...
 
 from emp_manage.views import json_views
 
-from .views import StudentView
-
+from .views import StudentView, UserRegisterView
 
 router = SimpleRouter()
-router.register('student',StudentView)
-
+router.register('student', StudentView)
 
 # Include the router URLs in your urlpatterns
 
 urlpatterns = [
-                ]+ router.urls
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('Register/',UserRegisterView.as_view())
+] + router.urls
 
 # re_path('', viewsets.as_View)
-
-

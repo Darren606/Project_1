@@ -67,7 +67,7 @@ class Person3View(ModelViewSet):
     del_ids = openapi.Schema(type=openapi.TYPE_OBJECT, required=['ids'],
                              properties={'ids': openapi.Schema(type=openapi.TYPE_ARRAY,
                                                                items=openapi.Schema(type=openapi.TYPE_INTEGER),
-                                                               description="some items need to deletel ID")})
+                                                               description="some items need to deletel of ID")})
 
     @swagger_auto_schema(method='delete', request_body=del_ids,operation_description="mulple delete")
     @action(methods=['DELETE'], detail=False)

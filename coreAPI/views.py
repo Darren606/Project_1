@@ -1,9 +1,10 @@
+from rest_framework.generics import CreateAPIView
 from rest_framework.viewsets import ModelViewSet
 
-from coreAPI.models import StudentModel
-from coreAPI.serializer import StudentSerializer
+from coreAPI.models import StudentModel, UserloginModel
+from coreAPI.serializer import StudentSerializer, UserloginSerializer
 
-
+"""This class can create, update,delete, and modify all the data in the database"""
 class StudentView(ModelViewSet):
     """
     create:
@@ -33,3 +34,10 @@ class StudentView(ModelViewSet):
 
     serializer_class = StudentSerializer
     queryset = StudentModel.objects.all()
+
+"""to get users token class"""
+
+class UserRegisterView(CreateAPIView):
+
+    serializer_class = UserloginSerializer
+    queryset = UserloginModel

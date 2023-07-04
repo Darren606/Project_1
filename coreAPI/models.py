@@ -1,8 +1,10 @@
 from datetime import datetime
 
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.core.exceptions import FieldError
-
+from django.contrib.auth.models import AbstractUser, Group, Permission
+from django.db import models
 
 from basic_info.base_model import BaseModel
 from django.core.exceptions import FieldDoesNotExist
@@ -46,3 +48,27 @@ class DeptModel(BaseModel):
 
     def __str__(self):
         return f"This department is {self.name, self.id, self.address, self.parent}"
+
+
+
+class UserloginModel(AbstractUser):
+    username = models.CharField(max_length=20, unique=True, verbose_name='username1')
+    email = models.CharField(max_length=50, unique=True, blank=True, null=True, verbose_name='email1')
+    password = models.CharField(max_length=100, verbose_name='pass')
+    phone = models.IntegerField(verbose_name='phone_num')
+
+
+
+
+
+    groups = models.ManyToManyField(Group, related_name='userlogins')
+    user_permissions = models.ManyToManyField(Permission, related_name='userlogins')
+
+    class Meta:
+        db_table = 't_userlogin'
+        verbose_name = 'User_table'
+        verbose_name_plural = verbose_name
+        ordering = ['id']
+
+    def __str__(self):
+        return f"THIS IS :{self.username}, ID is :{self.id}"
