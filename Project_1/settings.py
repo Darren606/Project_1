@@ -253,7 +253,33 @@ SESSION_CACHE_ALIAS = "session"
 # }
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+
+
+
+
 }
 
+# 'DEFAULT_THROTTLE_RATES':{
+#     'anon':'100/day',
+#     'user':'1000/day'
+# }
+
+
 # rest_framework.schemas
+
+
+# DEFAULT_AUTHENTICATION_CLASSES
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework_jwt.authentication.JSONWebTokenAuthentication'
+#         'rest_framework.authentication.BasicAuthentication',
+#         'rest_framework.authentication.SessionAuthentication',
+#     ]
+# }
+#
+# 'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.permissions.AllowAny',
+
+
+#     'rest_framework_jwt.authentication.JSONWebTokenAuthentication',),
