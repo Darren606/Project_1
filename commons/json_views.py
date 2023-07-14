@@ -13,14 +13,14 @@ class StaffLoginAPIView(APIView):
         path /api/login
 
         """
-    pass
-#         request_body = request.body
-#         parames = json.loads(request_body.decode())
-#         username = parames.get("username")
-#         password = parames.get("password")
-#
-#         if username == 'admin' and password == '123':
-#             token = utils.make_token(username)
-#             return Response({"code": 200, 'message': 'logined successfully!', 'data': {"taken": token}})
-#         else:
-#             return Response({"message": "logined failed: password was wrong!"}, status=201)
+
+        # request_body = request.body
+        # parames = json.loads(request_body.decode())
+        # username = parames.get("username")
+        # password = parames.get("password")
+        #
+        # if username == 'admin' and password == '123':
+        #     token = utils.make_token(username)
+        #     return Response({"code": 200, 'message': 'logined successfully!', 'data': {"taken": token}})
+        # else:
+        #     return Response({"message": "logined failed: password was wrong!"}, status=201)

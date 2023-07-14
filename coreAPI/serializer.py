@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
+from django.utils.translation import gettext as _
 
 from coreAPI.models import StudentModel, UserloginModel
 

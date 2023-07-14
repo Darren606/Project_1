@@ -27,32 +27,31 @@ class Person2View(GenericAPIView, ListModelMixin, CreateModelMixin):
 class Person3View(ModelViewSet):
     """
     create:
-    新加
+
 
     create all menu
 
     retrieve:
-    修改
 
     modify some data
 
     update:
-    更新
+
 
     add data
 
     partial_update:
-    新增
+
 
     single add
 
     destroy:
-    55
+
 
     deletel.......
 
     list:
-    66
+
 
     query all data
 

@@ -18,9 +18,11 @@ class JobChoices(models.TextChoices):
 
 class StudentModel(BaseModel):
     name = models.CharField(max_length=20, verbose_name='Name')
-    entry_data = models.DateTimeField(blank=True, null=True,default=datetime,verbose_name='Entry_data')
+
+    entry_data = models.DateTimeField(blank=True, null=True, default=datetime.now, verbose_name='Entry_data')
+
     age = models.IntegerField(blank=True, null=True, verbose_name='Age')
-    job_title = models.TextField(max_length=11,choices=JobChoices.choices,  verbose_name='Job_title')
+    job_title = models.TextField(max_length=11,choices=JobChoices.choices, verbose_name='Job_title')
     wage = models.IntegerField(blank=True, null=True, verbose_name='Wage')
     bonu = models.IntegerField(unique=True, blank=True, null=True, verbose_name='Bonus')
     email = models.CharField(max_length=50, unique=True, blank=True, null=True, verbose_name='E-mail1')
@@ -52,7 +54,7 @@ class DeptModel(BaseModel):
 
 
 class UserloginModel(AbstractUser):
-    username = models.CharField(max_length=20, unique=True, verbose_name='username1')
+    username = models.CharField(max_length=20, unique=True)
     email = models.CharField(max_length=50, unique=True, blank=True, null=True, verbose_name='email1')
     password = models.CharField(max_length=100, verbose_name='pass')
     phone = models.IntegerField(verbose_name='phone_num')
@@ -66,7 +68,7 @@ class UserloginModel(AbstractUser):
 
     class Meta:
         db_table = 't_userlogin'
-        verbose_name = 'User_table'
+        verbose_name = 'User_table22'
         verbose_name_plural = verbose_name
         ordering = ['id']
 
